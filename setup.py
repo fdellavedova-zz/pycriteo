@@ -11,7 +11,7 @@ setup(
     version='0.0.1',
     description='Simple library to access the Criteo API',
     long_description=readme(),
-    url='http://github.com/storborg/funniest',
+    url='https://github.com/fdellavedova-wimdu/pycriteo',
     author='Francesco Della Vedova',
     author_email='fdellavedova@gmail.com',
     license='Apache 2.0',
