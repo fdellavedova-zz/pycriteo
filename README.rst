@@ -6,8 +6,8 @@ It uses Python convenient built in dictionaries to make API requests.
 
 Basic usage:
 -----------
-##### Get all running campaigns
-```
+Get all running campaigns
+
     >>> from pycriteo import Client
     >>> c = Client('username', 'password', 'token')
     >>> campaigns = c.getCampaigns({'campaignStatus': 'RUNNING'})
@@ -16,12 +16,12 @@ Basic usage:
      'campaignID',
      'categoryBids',
      'budgetID',
-     'campaignName',
+    'campaignName',
      'remainingDays',
      'campaignBid']
-```
-##### Schedule a report job
-```
+     
+Schedule a report job
+
     >>> job = c.scheduleReportJob(
                 {'reportType': 'Category',
                  'reportSelector': {
@@ -31,17 +31,17 @@ Basic usage:
              'isResultGzipped': False,
              'aggregationType': 'Daily'
              }
-```
-##### Save the report job as csv
-```
+
+Save the report job as csv
+
     >>> c.downloadReport(job.jobID, 'my_report.csv')
-```
+
 Installation
 --------------
 
-```
-pip install pycriteo
-```
+
+    pip install pycriteo
+
 
 License
 ----
