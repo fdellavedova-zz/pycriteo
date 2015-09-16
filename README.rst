@@ -26,11 +26,12 @@ Schedule a report job
                 {'reportType': 'Category',
                  'reportSelector': {
                         'CampaignIDs': [i.campaignID for i in campaigns.campaign]},
-             'startDate': '20140101',
-             'endDate': '20143001',
-             'isResultGzipped': False,
-             'aggregationType': 'Daily'
-             }
+                'startDate': '2014-01-01',
+                'endDate': '2014-30-01',
+                'isResultGzipped': False,
+                'aggregationType': 'Daily'
+                }
+            )
 
 Save the report job as csv
 
