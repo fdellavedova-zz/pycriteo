@@ -8,13 +8,20 @@ Python wrapper for the Criteo API
 from suds.client import Client as soapclient
 import xml.etree.ElementTree as etree
 
+import sys
 import time
 import unicodecsv as csv
-import urllib2
+if sys.version_info[0] == 3:
+    from urllib.request import urlopen
+else:
+    # Not Python 3 - today, it is most likely to be Python 2
+    # But note that this might need an update when Python 4
+    # might be around one day
+    from urllib import urlopen
 
 
 def _assign(selector, entity):
-    for key, value in selector.iteritems():
+    for key, value in selector.items():
         attr = getattr(entity, key)
         if isinstance(value, dict):
             _assign(value, attr)
@@ -231,16 +238,13 @@ class Client(object):
                 break
 
         table = etree.parse(
-            urllib2.urlopen(self.getReportDownloadUrl(jobID))
+            urlopen(self.getReportDownloadUrl(jobID))
         ).getroot().getchildren()[0]
 
         rows = [i for i in table if i.tag == 'rows'][0]
 
-        with open(path, 'w') as rep:
-            wr = csv.DictWriter(
-                rep,
-                set([f for r in rows for f in r.keys()])
-            )
+        with open(path, 'wb') as rep:
+            wr = csv.DictWriter(rep, set([f for r in rows for f in r.keys()]))
             wr.writeheader()
 
             for row in rows:
@@ -258,5 +262,3 @@ class Client(object):
         import logging
         logging.basicConfig(level=logging.INFO)
         logging.getLogger('suds.client').setLevel(getattr(logging, log_level))
-
-
