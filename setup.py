@@ -17,7 +17,7 @@ setup(
     license='Apache 2.0',
     packages=['pycriteo'],
     install_requires=[
-        'suds==0.4',
-        'unicodecsv==0.9.4',
+        'suds-jurko==0.6',
+        'unicodecsv==0.14.1',
     ]
 )
