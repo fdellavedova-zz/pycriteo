@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 """
 Python wrapper for the Criteo API
@@ -11,6 +10,7 @@ import xml.etree.ElementTree as etree
 import sys
 import time
 import unicodecsv as csv
+
 if sys.version_info[0] == 3:
     from urllib.request import urlopen
 else:
