@@ -54,7 +54,7 @@ class Client(object):
     """
 
     CLIENT = soapclient(
-        'https://advertising.criteo.com/api/v201010/advertiserservice.asmx?WSDL',
+        'https://advertising.criteo.com/API/v201305/AdvertiserService.asmx?WSDL',
     )
 
     def __init__(self, username, password, token, client_version=None,
