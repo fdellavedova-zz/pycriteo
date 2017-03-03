@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='pycriteo',
-    version='0.0.1',
+    version='0.0.2',
     description='Simple library to access the Criteo API',
     long_description=readme(),
     url='https://github.com/fdellavedova-wimdu/pycriteo',
