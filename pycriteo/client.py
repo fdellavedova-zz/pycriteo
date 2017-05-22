@@ -250,6 +250,26 @@ class Client(object):
             for row in rows:
                 wr.writerow(row.attrib)
 
+    def getReportData(self, jobID):
+        """
+        Utility method for getting a report as a dictionary list
+            Each dictionary in the list represents a day
+        Args:
+            jobID: jobID
+        """
+
+        while True:
+            if not self.CLIENT.service.getJobStatus(jobID) == 'Pending':
+                break
+
+        table = etree.parse(
+            urlopen(self.getReportDownloadUrl(jobID))
+        ).getroot().getchildren()[0]
+
+        rows = [i for i in table if i.tag == 'rows'][0]
+
+        return [row.attrib for row in rows]
+
     def _make_type(self, object_name):
         return self.CLIENT.factory.create(object_name)
 
