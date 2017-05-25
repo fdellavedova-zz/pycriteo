@@ -41,6 +41,7 @@ class Client(object):
         . getAccount
         . getBudgets
         . getCampaigns
+        . getCatalogsNames
         . getCategories
         . getJobStatus
         . getReportDownloadUrl
@@ -130,6 +131,13 @@ class Client(object):
         return self.CLIENT.service.getCampaigns(
             _assign(campaignSelector, selector)
         )
+
+    def getCatalogsNames(self):
+        """
+        SOAP Method:
+            getCatalogsNames()
+        """
+        return self.CLIENT.service.getCatalogsNames()
 
     def getCategories(self, categorySelector):
         """
